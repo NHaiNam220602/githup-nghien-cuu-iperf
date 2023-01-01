@@ -55,7 +55,7 @@ def read():
         for row in csv_reader:
             timer = row['Interval']
             bandwidth = row['Bandwidth']
-            iperf.append({'timer': timer,
+            iperf3.append({'timer': timer,
                         'bandwidth': bandwidth})
     return iperf3
 iperf3 = read()
