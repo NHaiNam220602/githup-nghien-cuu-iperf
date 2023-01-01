@@ -37,7 +37,7 @@ def udp():
             for line in lines:
                 writer.writerow(line.split())
 udp()
-def read_csv():
+def read_tcp():
     iperf = []
     with open('data.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -47,8 +47,8 @@ def read_csv():
             iperf.append({'timer': timer,
                         'bandwidth': bandwidth})
     return iperf
-iperf = read_csv()
-def read():
+iperf = read_tcp()
+def read_udp():
     iperf3 = []
     with open('b.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -58,7 +58,7 @@ def read():
             iperf3.append({'timer': timer,
                         'bandwidth': bandwidth})
     return iperf3
-iperf3 = read()
+iperf3 = read_udp()
 def draw_time_by_bandwidth(iperf,iperf3):
     time = [float(iperf['timer']) for iperf in iperf]
     time3 = [float(iperf3['timer']) for iperf3 in iperf3]
